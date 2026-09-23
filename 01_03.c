@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-void converterTempo(int segundos)
-{
+void converterTempo(int segundos){
     int horas, minutos;
   
     horas = segundos / 3600;
@@ -12,8 +11,7 @@ void converterTempo(int segundos)
     printf("%d horas, %d minutos e %d segundos\n", horas, minutos, segundos);
 }
 
-int main()
-{
+int main(){
     int tempo;
   
     printf("Digite o tempo de duracao da fabrica em segundos: ");
