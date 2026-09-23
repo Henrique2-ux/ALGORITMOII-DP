@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-/*2) Escreva uma função que receba um vetor de inteiros, seu tamanho e um número X
-(informado pelo usuário). A função deve buscar X no vetor e retornar um ponteiro para
-a primeira posição de memória onde X foi encontrado.
--Se X não estiver no vetor, a função deve retornar NULL.
--Apresente o resultado na main.
-*/
-
-
 int *vetorinteiro(int *vetor, int tamanho, int num){
     for (int i = 0; i < tamanho; i++) {
         if (vetor[i] == num) {
