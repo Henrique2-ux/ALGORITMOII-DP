@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
+struct Pessoa {
+    char nome[50];
+    struct Data nascimento;
+};
+
+int main() {
+    struct Pessoa pessoas[6];
+    int mais_velha = 0;
+    int mais_nova = 0;
+
+    for (int i = 0; i < 6; i++) {
+        fgets(pessoas[i].nome, sizeof(pessoas[i].nome), stdin);
+        pessoas[i].nome[strcspn(pessoas[i].nome, "\n")] = '\0';
+
+        scanf("%d %d %d", &pessoas[i].nascimento.dia, &pessoas[i].nascimento.mes, &pessoas[i].nascimento.ano);
+        getchar(); 
+
+        int dias_atual = pessoas[i].nascimento.ano * 365 + pessoas[i].nascimento.mes * 30 + pessoas[i].nascimento.dia;
+        int dias_velha = pessoas[mais_velha].nascimento.ano * 365 + pessoas[mais_velha].nascimento.mes * 30 + pessoas[mais_velha].nascimento.dia;
+        int dias_nova  = pessoas[mais_nova].nascimento.ano * 365 + pessoas[mais_nova].nascimento.mes * 30 + pessoas[mais_nova].nascimento.dia;
+
+        if (dias_atual < dias_velha) {
+            mais_velha = i;
+        }
+
+        if (dias_atual > dias_nova) {
+            mais_nova = i;
+        }
+    }
+
+    printf("Mais velha: %s\n", pessoas[mais_velha].nome);
+    printf("Mais nova: %s\n", pessoas[mais_nova].nome);
+
+    return 0;
+}
